@@ -1,0 +1,30 @@
+{
+  "name": "twitter-clone",
+  "version": "1.0.0",
+  "description": "== README",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanspecht/twitter-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanspecht/twitter-clone/issues"
+  },
+  "homepage": "https://github.com/nathanspecht/twitter-clone#readme",
+  "dependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "webpack": "^1.12.15"
+  }
+}
