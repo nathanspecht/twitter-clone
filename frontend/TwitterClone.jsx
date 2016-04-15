@@ -6,7 +6,11 @@ var TwitterClone = React.createClass({
 
   render: function () {
     return(
-      <div>This is Twitter Clone</div>
+      <div>
+        <div>This is Twitter Clone</div>
+        <button onClick={TwitterUtil.tweets}>Get Tweets!</button>
+      </div>
+
     );
   }
 });

@@ -1,10 +1,9 @@
 var TwitterUtil = {
-  signIn: function() {
+  tweets: function() {
     $.ajax({
-      url: 'https://api.twitter.com/oauth/request_token',
+      url: '/tweets',
       type: 'get',
       dataType: 'json',
-      data: { callback: "http:localhost:3000" },
       success: function(response) {
         debugger
       },
