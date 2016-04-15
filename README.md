@@ -1,7 +1,7 @@
 # Twitter Clone
 
 ### **Run the server locally**
-1. Run the following in your terminal:
+1. In your terminal:
   1. `npm install`
   - `bundle install`
   - `webpack`
