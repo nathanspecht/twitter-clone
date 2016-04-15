@@ -8,8 +8,10 @@ var TwitterClone = React.createClass({
     return(
       <div>
         <div>This is Twitter Clone</div>
-        <GetTweets />
-        <Tweets />
+        <div className="tweet-things">
+          <GetTweets />
+          <Tweets />
+        </div>
       </div>
     );
   }

@@ -3,16 +3,17 @@ var React = require('react'),
     TweetUtil = require('../util/TweetUtil');
 
 var GetTweets = React.createClass({
-  getTweets: function() {
-    var username = this.refs.username.value;
-    TweetUtil.getTweets(username);
+  getTweets: function(e) {
+    if (e.key === "Enter") {
+      var username = this.refs.username.value;
+      TweetUtil.getTweets(username);
+    }
   },
 
   render: function () {
     return(
-      <div>
-        <input type="text" ref="username" />
-        <button onClick={this.getTweets}>Get Tweets!</button>
+      <div className="get-tweets">
+        <input onKeyDown={this.getTweets} type="text" ref="username" placeholder="username"/>
       </div>
     );
   }

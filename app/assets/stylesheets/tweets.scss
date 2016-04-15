@@ -6,6 +6,35 @@ $gray: #ABABAB;
 $light-gray: #E8E8E8;
 $very-light-gray: #F6F6F6;
 
+
+.tweet-things {
+  width: 500px;
+  margin: auto;
+}
+
+.get-tweets {
+  float: right;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-right: 25px;
+
+  input {
+    border-radius: 20px;
+    border: 1px solid $light-gray;
+    height: 10px;
+    background-color: $very-light-gray;
+    padding: 10px;
+    padding-left: 15px;
+    width: 200px;
+  }
+
+  input:focus {
+    background-color: white;
+    outline: none;
+  }
+}
+
+
 .info {
   float: left;
   width: 420px;
@@ -34,11 +63,12 @@ $very-light-gray: #F6F6F6;
 
 .tweets {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10px;
   border: 1px solid $light-gray;
   border-radius: 5px;
   padding: 0px;
   width: 500px;
+  clear: both;
 }
 
 .tweets > h2 {
