@@ -1,16 +1,16 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var TwitterUtil = require('./util/TwitterUtil');
+var React = require('react'),
+    ReactDOM = require('react-dom'),
+    GetTweets = require('./components/GetTweets'),
+    Tweets = require('./components/Tweets');
 
 var TwitterClone = React.createClass({
-
   render: function () {
     return(
       <div>
         <div>This is Twitter Clone</div>
-        <button onClick={TwitterUtil.tweets}>Get Tweets!</button>
+        <GetTweets />
+        <Tweets />
       </div>
-
     );
   }
 });

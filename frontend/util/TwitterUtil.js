@@ -1,11 +1,13 @@
+var TweetActions = require('../actions/TweetActions');
+
 var TwitterUtil = {
-  tweets: function() {
+  tweets: function(username) {
     $.ajax({
-      url: '/tweets',
+      url: '/tweets?username=' + username,
       type: 'get',
       dataType: 'json',
-      success: function(response) {
-        debugger
+      success: function(tweets) {
+        TweetActions.receiveTweets(tweets)
       },
       error: function(response) {
         debugger
