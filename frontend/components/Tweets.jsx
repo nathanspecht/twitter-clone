@@ -13,13 +13,13 @@ var Tweets = React.createClass({
 
   getInitialState: function() {
     return {
-      tweets: TweetStore.all()
+      tweets: TweetStore.current()
     }
   },
 
   refreshTweets: function() {
     this.setState({
-      tweets: TweetStore.all()
+      tweets: TweetStore.current()
     });
   },
 

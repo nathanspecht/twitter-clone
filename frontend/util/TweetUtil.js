@@ -1,19 +1,25 @@
-var TweetActions = require('../actions/TweetActions');
+var TweetActions = require('../actions/TweetActions'),
+    TweetStore   = require('../stores/TweetStore');
 
 var TweetUtil = {
   getTweets: function(username) {
-    TweetActions.receiveTweets([]);
-    $.ajax({
-      url: '/tweets?username=' + username,
-      type: 'get',
-      dataType: 'json',
-      success: function(tweets) {
-        TweetActions.receiveTweets(tweets)
-      },
-      error: function(response) {
-        debugger
-      }
-    });
+    if (TweetStore.has(username)) {
+      var tweets = TweetStore.find(username)
+      TweetActions.receiveTweets(username, tweets)
+    } else {
+      TweetActions.receiveTweets('', []);
+      $.ajax({
+        url: '/tweets?username=' + username,
+        type: 'get',
+        dataType: 'json',
+        success: function(tweets) {
+          TweetActions.receiveTweets(username, tweets)
+        },
+        error: function(response) {
+          debugger
+        }
+      });
+    }
   },
 }
 
