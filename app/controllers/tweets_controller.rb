@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   def index
     options = { count: TWEET_COUNT }
     @tweets = twitter_client.user_timeline(username, options)
+    debugger
   end
 
   private

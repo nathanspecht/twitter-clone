@@ -26,7 +26,14 @@ var Tweets = React.createClass({
   renderTweets: function() {
     return this.state.tweets.map(tweet => {
       return(
-        <li key={tweet.id}>{tweet.text}</li>
+        <div key={tweet.id}>
+          <div>
+            {tweet.text}
+          </div>
+          <div>
+            {tweet.date}
+          </div>
+        </div>
       )
     })
   },
