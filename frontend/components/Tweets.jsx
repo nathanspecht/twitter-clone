@@ -27,11 +27,19 @@ var Tweets = React.createClass({
     return this.state.tweets.map(tweet => {
       return(
         <div key={tweet.id} className="tweet">
-          <div className="tweet-date">
-            {tweet.date}
-          </div>
-          <div className="tweet-text">
-            {tweet.text}
+          <img className="img-icon" src={tweet.user.image_url} />
+          <div className="info">
+            <div className="tweet-user">
+              <span className="bold">
+                {tweet.user.name}
+              </span>
+              <span className="lite">
+                @{tweet.user.username} • {tweet.date}
+              </span>
+            </div>
+            <div className="tweet-text">
+              {tweet.text}
+            </div>
           </div>
         </div>
       )
@@ -41,9 +49,10 @@ var Tweets = React.createClass({
   render: function () {
     var tweets = this.renderTweets();
     return(
-      <ul className="tweets">
+      <div className="tweets">
+        <h2>Tweets</h2>
         {tweets}
-      </ul>
+      </div>
     );
   }
 });
