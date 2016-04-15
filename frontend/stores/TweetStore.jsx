@@ -21,8 +21,11 @@ TweetStore.find = function(username) {
 TweetStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
   case TweetConstants.TWEETS_RECEIVED:
-    TweetStore.__cacheTweets(payload.username, payload.tweets)
+    TweetStore.__cacheTweets(payload.username, payload.tweets);
     TweetStore.__receiveTweets(payload.tweets);
+    break;
+  case TweetConstants.TWEETS_LOADING:
+    TweetStore.__clearCurrentTweets();
     break;
   }
 };
@@ -34,6 +37,11 @@ TweetStore.__receiveTweets = function(tweets) {
 
 TweetStore.__cacheTweets = function(username, tweets) {
   _tweets[username] = tweets;
+};
+
+TweetStore.__clearCurrentTweets = function() {
+  _current_tweets = [];
+  this.__emitChange();
 };
 
 module.exports = TweetStore;

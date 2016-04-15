@@ -7,7 +7,7 @@ var TweetUtil = {
       var tweets = TweetStore.find(username)
       TweetActions.receiveTweets(username, tweets)
     } else {
-      TweetActions.receiveTweets('', []);
+      TweetActions.loadingTweets();
       $.ajax({
         url: '/tweets?username=' + username,
         type: 'get',

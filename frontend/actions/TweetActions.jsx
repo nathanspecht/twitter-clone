@@ -8,6 +8,12 @@ var TweetActions = {
       username: username,
       tweets: tweets
     });
+  },
+
+  loadingTweets: function() {
+    AppDispatcher.dispatch({
+      actionType: TweetConstants.TWEETS_LOADING
+    })
   }
 };
 
