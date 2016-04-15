@@ -1,5 +1,14 @@
 class TweetsController < ApplicationController
+  TWEET_COUNT = 25
+
   def index
-    @tweets = twitter_client.user_timeline(params[:username])
+    options = { count: TWEET_COUNT }
+    @tweets = twitter_client.user_timeline(username, options)
+  end
+
+  private
+
+  def username
+    params[:username]
   end
 end
