@@ -18,6 +18,10 @@ TweetStore.find = function(username) {
   return _tweets[username].slice(0);
 };
 
+TweetStore.savedSearches = function() {
+   return Object.keys(_tweets);
+};
+
 TweetStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
   case TweetConstants.TWEETS_RECEIVED:

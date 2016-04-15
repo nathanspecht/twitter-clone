@@ -1,13 +1,13 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
     GetTweets = require('./components/GetTweets'),
-    Tweets = require('./components/Tweets');
+    Tweets = require('./components/Tweets'),
+    RecentSearches = require('./components/RecentSearches');
 
 var TwitterClone = React.createClass({
   render: function () {
     return(
       <div>
-        <div>This is Twitter Clone</div>
         <div className="tweet-things">
           <GetTweets />
           <Tweets />

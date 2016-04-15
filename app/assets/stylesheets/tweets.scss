@@ -6,6 +6,50 @@ $gray: #ABABAB;
 $light-gray: #E8E8E8;
 $very-light-gray: #F6F6F6;
 
+.hidden {
+  display: none;
+}
+
+.recent-searches {
+  position: absolute;
+  background-color: white;
+  width: 220px;
+  border-radius: 5px;
+  margin-top: 2px;
+  border: 1px solid $light-gray;
+  margin-left: 2px;
+  padding: 10px;
+
+  h4 {
+    font-size: 14px;
+    font-weight: bold;
+    height: 24px;
+  }
+
+  ul {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    display: block;
+    font-size: 12px;
+    text-align: left;
+    line-height: 18px;  
+  }
+
+  li {
+    border-top: 1px solid $light-gray;
+    display: block;
+    list-style: none;
+    text-align: inherit;
+    line-height: inherit;
+    width: 100%;
+    white-space: nowrap;
+    float: left;
+    clear: left;
+  }
+} 
 
 .tweet-things {
   width: 500px;

@@ -13,13 +13,13 @@ var TweetUtil = {
         type: 'get',
         dataType: 'json',
         success: function(tweets) {
-          TweetActions.receiveTweets(username, tweets)
+          TweetActions.receiveTweets(username, tweets);
         },
         error: function(response) {
-          debugger
+          console.log(response);
         }
       });
-    }
+    } 
   },
 }
 
