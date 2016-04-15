@@ -1,11 +1,11 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    TwitterUtil = require('../util/TwitterUtil');
+    TweetUtil = require('../util/TweetUtil');
 
 var GetTweets = React.createClass({
   getTweets: function() {
     var username = this.refs.username.value;
-    TwitterUtil.tweets(username);
+    TweetUtil.getTweets(username);
   },
 
   render: function () {
