@@ -1,3 +1,30 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$gray: #ABABAB;
+$light-gray: #E8E8E8;
+
+.tweets {
+  border: 0.5px solid $light-gray;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+.tweet {
+  border-bottom: 1px solid $light-gray;
+  padding: 10px;
+}
+
+.tweet:last-child {
+  border-bottom: none;
+}
+
+.tweet-date {
+  color: $gray;
+  font-size: 13px;
+}
+
+.tweet-text {
+
+}
