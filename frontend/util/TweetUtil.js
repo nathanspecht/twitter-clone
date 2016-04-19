@@ -21,20 +21,6 @@ var TweetUtil = {
       });
     } 
   },
-  
-  getSignature: function() {
-    $.ajax({
-      url: '/users/oauth_token',
-      type: 'get',
-      success: function(response) {
-        console.log(response);
-        window.location = 'https://api.twitter.com/oauth/authenticate?oauth_token=' + response.oauth_token;
-      },
-      error: function(response) {
-        console.log(response)
-      }
-    });
-  }
 }
 
 module.exports = TweetUtil;

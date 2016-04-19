@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  def oauth_token
-    render json: { oauth_token: token }
+  skip_before_action :ensure_login, only: [:begin_twitter_sign_in, :sign_in_with_twitter]
+
+  def begin_twitter_sign_in 
+    redirect_to "https://api.twitter.com/oauth/authenticate?oauth_token=#{token}"
   end
 
   def sign_in_with_twitter
@@ -10,14 +12,6 @@ class UsersController < ApplicationController
 
   private
   
-  def authorize_user
-    twitter_oauth.authorize(
-      token,
-      secret,
-      oauth_verifier: oauth_verifier
-    )
-  end
-
   def token
     request_token['token']
   end
@@ -26,8 +20,22 @@ class UsersController < ApplicationController
     request_token['secret']
   end
 
+  def authorize_user
+    access_token = 
+      twitter_oauth.authorize(
+        token,
+        secret,
+        oauth_verifier: oauth_verifier
+      )
+
+    session[:access_token] = { 
+      token:  access_token.token,
+      secret: access_token.secret
+    } 
+  end
+
   def request_token
-    session['request_token'] ||= 
+    session[:request_token] ||= 
       JSON.parse(
         twitter_oauth.request_token(
           oauth_callback: oauth_callback
