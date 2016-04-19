@@ -5,5 +5,16 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#root'
 
-  resources :tweets, only: [:index]
+  resources :tweets, only: [:index] do
+    collection do
+      get :auth_string
+    end
+  end
+
+  resources :users, only: [] do
+    collection do
+      get :oauth_token
+      get :sign_in_with_twitter
+    end
+  end
 end

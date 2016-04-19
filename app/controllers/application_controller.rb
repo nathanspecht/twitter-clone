@@ -4,9 +4,26 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def twitter_client
-    @twitter_client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key    = ENV['twitter_consumer_key']
-      config.consumer_secret = ENV['twitter_consumer_secret']
-    end
+    @twitter_client ||= Twitter::REST::Client.new(
+      consumer_key: consumer_key,
+      consumer_secret: consumer_secret
+    )
+  end
+
+  def twitter_oauth
+    @twitter_oauth ||= TwitterOAuth::Client.new(
+      consumer_key: consumer_key, 
+      consumer_secret: consumer_secret
+    )
+  end
+
+  private
+
+  def consumer_key
+    ENV['twitter_consumer_key']
+  end
+
+  def consumer_secret
+    ENV['twitter_consumer_secret']
   end
 end

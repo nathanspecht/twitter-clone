@@ -47,7 +47,7 @@ var GetTweets = React.createClass({
           onKeyDown={this.getTweets} 
           type="text" 
           ref="username" 
-          placeholder="username"/>
+          placeholder="Search"/>
         <RecentSearches shown={searchesShown}/>
       </div>
     );

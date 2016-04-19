@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  TWEET_COUNT = 25
+  TWEET_COUNT            = 25
 
   def index
     options = { count: TWEET_COUNT }
@@ -7,8 +7,10 @@ class TweetsController < ApplicationController
   end
 
   private
-
+  
   def username
     params[:username]
   end
 end
+
+
