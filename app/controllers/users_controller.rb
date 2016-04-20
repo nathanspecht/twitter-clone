@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_login, only: [:begin_twitter_sign_in, :sign_in_with_twitter]
+  before_action :ensure_logged_out, only: [:begin_twitter_sign_in, :sign_in_with_twitter]
 
   def begin_twitter_sign_in 
     redirect_to "https://api.twitter.com/oauth/authenticate?oauth_token=#{token}"
@@ -10,6 +11,11 @@ class UsersController < ApplicationController
     redirect_to :root
   end
 
+  def logout
+    clear_tokens
+    redirect_to action: 'login', controller: 'static_pages'
+  end
+
   private
   
   def token
@@ -18,6 +24,11 @@ class UsersController < ApplicationController
 
   def secret
     request_token['secret']
+  end
+
+  def clear_tokens
+    session[:access_token]  = nil
+    session[:request_token] = nil
   end
 
   def authorize_user

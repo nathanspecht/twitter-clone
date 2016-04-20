@@ -28,6 +28,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_logged_out
+    if session[:access_token]
+      redirect_to :root
+    end
+  end
+
   def consumer_key
     ENV['twitter_consumer_key']
   end
