@@ -3,11 +3,11 @@ var TweetActions = require('../actions/TweetActions'),
 
 var TweetUtil = {
   getTweets: function(username) {
-    var tweets = TweetStore.find(username);
+//    var tweets = TweetStore.find(username);
 
-    if (tweets) {
-      TweetActions.receiveTweets(username, tweets)
-    } else {
+//    if (tweets) {
+//      TweetActions.receiveTweets(username, tweets)
+//    } else {
       TweetActions.loadingTweets();
       $.ajax({
         url: '/tweets?username=' + username,
@@ -20,7 +20,7 @@ var TweetUtil = {
           console.log(response);
         }
       });
-    } 
+//    } 
   },
 }
 

@@ -52,3 +52,4 @@ end
 gem 'twitter'
 gem 'figaro'
 gem 'twitter_oauth'
+gem 'dalli'
