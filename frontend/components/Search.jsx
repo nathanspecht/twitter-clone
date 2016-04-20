@@ -34,6 +34,8 @@ var Search = React.createClass({
     // the onClick event occurs
 
     this.refs.recentSearches.className = "hiding";
+    
+    clearTimeout(this.timeoutId);
 
     this.timeoutId = setTimeout(function(){
       this.setState({
