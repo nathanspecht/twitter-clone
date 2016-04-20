@@ -3,6 +3,9 @@ var UserUtil = {
     $.ajax({
       url: '/users/logout',
       type: 'post',
+      success: function() {
+        location.reload();
+      }
     })
   }
 }
