@@ -1,10 +1,12 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    TweetStore = require('../stores/TweetStore');
+    TweetStore = require('../stores/TweetStore'),
+    TweetUtil = require('../util/TweetUtil');
 
 var RecentSearches = React.createClass({
   componentDidMount: function() {
-    this.TweetStoreListener = TweetStore.addListener(this.setSearches);
+    this.TweetStoreListener = 
+      TweetStore.addListener(this.updateRecentSearches);
   },
 
   componentWillUnmount: function() {
@@ -13,27 +15,35 @@ var RecentSearches = React.createClass({
 
   getInitialState: function() {
     return {
-      searches: TweetStore.savedSearches()
+      recentSearches: TweetStore.recentSearches()
     }
   },
 
-  setSearches: function() {
+  updateRecentSearches: function() {
     this.setState({
-      searches: TweetStore.savedSearches()
+      recentSearches: TweetStore.recentSearches()
     });
   },
 
+  getTweets: function(username) {
+    TweetUtil.getTweets(username);
+  },
+
   renderSearches: function() {
-    return this.state.searches.map((search, idx) => {
+    var getTweets = this.getTweets;
+
+    return this.state.recentSearches.map((search, idx) => {
       return(
-        <li key={idx}>{search}</li>
+        <li key={idx} onClick={getTweets.bind(null, search)}>
+          {search}
+        </li>
       )
     })
   },
   
   render: function () {
-    var searches = this.renderSearches();
-    var shown = this.props.shown ? "" : "hidden";
+    var searches = this.renderSearches(),
+        shown    = this.props.shown ? "" : "hidden";
     return(
       <ul className={"recent-searches " + shown}>
         <h4>Recent searches</h4>

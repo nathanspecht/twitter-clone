@@ -1,25 +1,33 @@
-var _tweets = {},
-    _current_tweets = [],
-    Store = require("flux/utils").Store,
+var Store = require("flux/utils").Store,
     TweetConstants = require("../constants/TweetConstants"),
     AppDispatcher = require("../dispatcher/AppDispatcher");
 
+var _currentTweets  = [],
+    _recentSearches = [];
+    
 var TweetStore = new Store(AppDispatcher);
 
 TweetStore.current = function() {
-  return _current_tweets.slice(0);
-};
-
-TweetStore.has = function(username) {
-  return !!_tweets[username];
+  return _currentTweets.slice(0);
 };
 
 TweetStore.find = function(username) {
-  return _tweets[username].slice(0);
+  var idx = _recentSearches.findIndex(pair => {
+    return pair[0] === username;
+  })
+
+  if (idx > -1) {
+    var pair = _recentSearches.splice(idx, 1);
+    return JSON.parse(pair[0][1]);
+  } else {
+    return null;
+  }
 };
 
-TweetStore.savedSearches = function() {
-   return Object.keys(_tweets);
+TweetStore.recentSearches = function() {
+  return _recentSearches.reverse().map(pair => {
+    return pair[0];
+  })
 };
 
 TweetStore.__onDispatch = function(payload) {
@@ -35,16 +43,17 @@ TweetStore.__onDispatch = function(payload) {
 };
 
 TweetStore.__receiveTweets = function(tweets) {
-  _current_tweets = tweets;
+  _currentTweets = tweets;
   this.__emitChange();
 };
 
 TweetStore.__cacheTweets = function(username, tweets) {
-  _tweets[username] = tweets;
+  var tweetsJSON = JSON.stringify(tweets)
+  _recentSearches.push([username, tweetsJSON]);
 };
 
 TweetStore.__clearCurrentTweets = function() {
-  _current_tweets = [];
+  _currentTweets = [];
   this.__emitChange();
 };
 

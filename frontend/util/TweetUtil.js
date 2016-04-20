@@ -3,8 +3,9 @@ var TweetActions = require('../actions/TweetActions'),
 
 var TweetUtil = {
   getTweets: function(username) {
-    if (TweetStore.has(username)) {
-      var tweets = TweetStore.find(username)
+    var tweets = TweetStore.find(username);
+
+    if (tweets) {
       TweetActions.receiveTweets(username, tweets)
     } else {
       TweetActions.loadingTweets();
