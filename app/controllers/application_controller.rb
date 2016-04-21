@@ -43,10 +43,10 @@ class ApplicationController < ActionController::Base
   end
 
   def access_token
-    session[:access_token][:token]
+    session[:access_token]['token']
   end
 
   def access_token_secret
-    session[:access_token][:secret]
+    session[:access_token]['secret']
   end
 end

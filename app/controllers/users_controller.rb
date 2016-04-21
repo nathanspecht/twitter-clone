@@ -16,7 +16,16 @@ class UsersController < ApplicationController
     redirect_to action: 'login', controller: 'static_pages'
   end
 
+  def current
+    user = User.construct(current_user).to_json
+    render json: user
+  end
+
   private
+
+  def current_user
+    twitter_client.current_user
+  end
   
   def token
     request_token['token']

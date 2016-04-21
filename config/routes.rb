@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resource :users, only: [] do
     get  :begin_twitter_sign_in
     get  :sign_in_with_twitter
+    get  :current
     post :logout
   end
 end
