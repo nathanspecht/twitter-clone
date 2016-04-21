@@ -45,7 +45,7 @@ var RecentSearches = React.createClass({
     var searches = this.renderSearches(),
         shown    = this.props.shown ? "" : "hidden";
     return(
-      <ul className={"recent-searches " + shown}>
+      <ul className={"dropdown " + shown}>
         <h4>Recent searches</h4>
         {searches}
       </ul>

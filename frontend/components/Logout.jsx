@@ -5,9 +5,9 @@ var React = require('react'),
 var Logout = React.createClass({
   render: function () {
     return(
-      <button onClick={UserUtil.logout}>
-        Logout
-      </button>
+      <li onClick={UserUtil.logout}>
+        Log Out
+      </li>
     );
   }
 });

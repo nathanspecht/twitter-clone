@@ -3,8 +3,7 @@ var React = require('react'),
     Search = require('./components/Search'),
     Tweets = require('./components/Tweets'),
     RecentSearches = require('./components/RecentSearches'),
-    CurrentUser = require('./components/CurrentUser'),
-    Logout = require('./components/Logout');
+    CurrentUser = require('./components/CurrentUser');
 
 var TwitterClone = React.createClass({
   render: function () {
@@ -12,7 +11,6 @@ var TwitterClone = React.createClass({
       <div>
         <div className="tweet-things">
           <CurrentUser />
-          <Logout />
           <Search />
           <Tweets />
         </div>
