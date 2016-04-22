@@ -1,7 +1,32 @@
 # Twitter Clone
 
 ## **Frontend**
-The frontend code of the app can be found in the [frontend](frontend) folder.
+The frontend code of the app can be found in the [frontend](frontend) folder. It follows Facebook's [flux architecture](https://facebook.github.io/flux/docs/overview.html).
+
+#### Packages used:
+- babel
+- flux
+- react
+- react-dom
+- webpack
+
+### Stores
+#### [Tweet Store](frontend/stores/TweetStore.js)
+##### Functions
+- `TweetStore.current()`: returns the currently displayed tweets. 
+    - When tweets are received from the dispatcher, the TweetStore adds the `textHTML` property to each tweet. `textHTML` is equal to the `text` property with all @mentions wrapped in link tags. 
+- `TweetStore.recentSearches()`: returns an array of searched usernames in order of most recent.
+
+#### [User Store](frontend/stores/UserStore.js)
+##### Functions
+- `UserStore.current()`: returns the current user.
+
+### Components
+- **[CurrentUser](frontend/components/CurrentUser.jsx)**
+- **[Logout](frontend/components/Logout.jsx)**
+- **[RecentSearches](frontend/components/RecentSearches.jsx)**
+- **[Search](frontend/components/Search.jsx)**
+- **[Tweets](frontend/components/Tweets.jsx)**
 
 ## **Backend**
 #### Gems used:
