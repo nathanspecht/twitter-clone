@@ -4,18 +4,21 @@
 The frontend code of the app can be found in the [frontend](frontend) folder.
 
 ### **Backend**
-#### gems used:
+#### Gems used:
 - twitter
 - figaro
 - twitter_oauth
 - dalli
 
 #### [Users Controller](app/controllers/users_controller.rb)
-- The users controller is responsible for logging the user in and handling the twitter callback after login.
-- There is also an endpoint to display the current user.
+##### Endpoints
+- `being_twitter_sign_in`: redirects the user to the twitter auth page with the app token.
+- `sign_in_with_twitter`: callback url for twitter oauth, verifies twitter's access token then redirects the user to the app.
+- `current`: returns user data in json format based on the access token stored in the session.
+- `logout`: clears the access token from the session.
 
 #### [Tweets Conroller](app/controllers/tweets_controller.rb)
-- The tweets controller is responsible for returning tweets based on the `username` param.
+- `index`: returns specified number of tweets based on the `username` param.
 
 ### **Run the server locally**
 1. In your terminal:
