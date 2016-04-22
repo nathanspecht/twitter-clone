@@ -31,15 +31,11 @@
     "react-dom": "^15.0.1",
     "webpack": "^1.12.15"
   },
-  "devDependencies": {
-    "babel-jest": "^9.0.0",
-    "babel-preset-es2015": "*",
-    "babel-preset-react": "*",
-    "jest-cli": "*",
-    "react-addons-test-utils": "~0.14.0"
-  },
   "engines": {
     "node": "5.1.0",
     "npm": "3.3.12"
+  },
+  "devDependencies": {
+    "jest-cli": "^11.0.2"
   }
 }

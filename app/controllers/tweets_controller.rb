@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
       map(&construct_tweet).
       to_json
     end
-
+    
     render json: tweets
   end
 
