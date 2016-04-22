@@ -38,12 +38,12 @@ a:hover {
   position: relative;
   
   .dropdown-caret {
-    left: 10px;
-    top: 38px;
+    left: 8px;
+    top: 39px;
   }
 
   .dropdown {
-    top: 38px;
+    top: 39px;
     right: -14px;
     width: 106px;
 
@@ -206,6 +206,7 @@ a:hover {
   margin: auto;
 }
 
+
 .get-tweets {
   float: right;
   width: 200px;
@@ -228,7 +229,6 @@ a:hover {
     outline: none;
   }
 }
-
 
 .info {
   float: left;
@@ -291,4 +291,27 @@ a:hover {
 .tweet-date {
   color: $gray;
   font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .tweet-things {
+    width: 95%;
+  }
+
+  .tweets {
+    width: 100%;
+  }
+
+  .get-tweets {
+    float: left;
+    width: -moz-calc(100% - 70px);
+    width: -webkit-calc(100% - 70px);
+    width: calc(100% - 70px);
+    margin-right: 0px;
+    padding-right: 0px;
+
+    input {
+      width: 100%;
+    }
+  }
 }
