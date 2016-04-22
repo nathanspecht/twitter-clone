@@ -2,7 +2,8 @@ var React = require('react'),
     ReactDOM = require('react-dom'),
     UserStore = require('../stores/UserStore'),
     UserUtil = require('../util/UserUtil'),
-    Logout = require('./Logout');
+    Logout = require('./Logout'),
+    DropdownCaret = require('./DropdownCaret');
 
 var CurrentUser = React.createClass({
   componentDidMount: function() {
@@ -64,11 +65,14 @@ var CurrentUser = React.createClass({
         <img className="img-icon" 
              src={user.image_url} 
              onClick={this.toggleDropdown}/>
-        <ul className={"dropdown" + dropdownShown}>
-          <h4>{user.name}</h4>
-          <li className="dropdown-divider" />
-          <Logout />
-        </ul>
+        <div className={"relative" + dropdownShown}>
+          <DropdownCaret />
+          <ul className="dropdown">
+            <h4>{user.name}</h4>
+            <li className="dropdown-divider" />
+            <Logout />
+          </ul>
+        </div>
       </div>
     );
   }

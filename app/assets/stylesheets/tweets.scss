@@ -8,6 +8,10 @@ $very-light-gray: #F6F6F6;
 $blue: #0084B4;
 $transp-white: rgba(255, 255, 255, 0.98);
 
+.relative {
+  position: relative;
+}
+
 .hidden {
   display: none;
 }
@@ -33,6 +37,11 @@ a:hover {
   width: 32px;
   position: relative;
   
+  .dropdown-caret {
+    left: 10px;
+    top: 38px;
+  }
+
   .dropdown {
     top: 38px;
     right: -14px;
@@ -83,23 +92,89 @@ a:hover {
   }
 }
 
+.dropdown-caret {
+  color: rgb(41, 47, 51);
+  display: block;
+  float: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  height: 10px;
+  left: 19px;
+  line-height: 18px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 18px;
+  z-index: 1000;
+}
+
+.caret-outer {
+  border-bottom-color: rgba(0, 0, 0, 0.0980392);
+  border-bottom-style: solid;
+  border-bottom-width: 10px;
+  border-left-color: rgba(0, 0, 0, 0);
+  border-left-style: solid;
+  border-left-width: 10px;
+  border-right-color: rgba(0, 0, 0, 0);
+  border-right-style: solid;
+  border-right-width: 10px;
+  color: rgb(41, 47, 51);
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  height: auto;
+  left: 0px;
+  line-height: 18px;
+  margin-left: -1px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: auto;
+}
+
+.caret-inner {
+  border-bottom-color: rgba(255, 255, 255, 0.980392);
+  border-bottom-style: solid;
+  border-bottom-width: 9px;
+  border-left-color: rgba(0, 0, 0, 0);
+  border-left-style: solid;
+  border-left-width: 9px;
+  border-right-color: rgba(0, 0, 0, 0);
+  border-right-style: solid;
+  border-right-width: 9px;
+  color: rgb(41, 47, 51);
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  height: auto;
+  left: 1px;
+  line-height: 18px;
+  margin-left: -1px;
+  position: absolute;
+  text-align: left;
+  top: 1px;
+  width: auto;
+}
+
 .dropdown {
     background-clip: padding-box;
     box-shadow: 0 1px 4px rgba(0,0,0,0.25);
     position: absolute;
     background-color: $transp-white;
-    border-radius: 3px;
+    border-radius: 4px;
     border: 0 solid rgba(0,0,0,0.25);
-    margin-top: 2px;
+    margin-top: 10px;
     margin-left: 2px;
     width: 250px;
-    overflow: hidden;
     list-style: none;
     padding: 0;
     font-size: 14px;
     text-align: left;
     line-height: 18px;
     padding-bottom: 6px;
+    overflow: hidden;
   
   h4 {
     font-size: 14px;
