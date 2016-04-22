@@ -47,11 +47,11 @@ Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/contro
 3. Download and run postgresql 
 4. Open `localhost:3000` in your web browser
 
-### **Run Tests**
+## **Run Tests**
 1. `npm test`
 2. `rake test`
 
-### **Deploy to Heroku**
+## **Deploy to Heroku**
 In you terminal:
   - `figaro heroku:set -e production`
   - `git push heroku`
