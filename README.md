@@ -1,9 +1,9 @@
 # Twitter Clone
 
-### **Frontend**
+## **Frontend**
 The frontend code of the app can be found in the [frontend](frontend) folder.
 
-### **Backend**
+## **Backend**
 #### Gems used:
 - twitter
 - figaro
@@ -13,8 +13,8 @@ The frontend code of the app can be found in the [frontend](frontend) folder.
 ### Controllers
 #### [Users Controller](app/controllers/users_controller.rb)
 ##### Endpoints
-- `GET` `begin_twitter_sign_in`: redirects the user to the twitter auth page with the app token.
-- `GET` `sign_in_with_twitter`: callback url for twitter oauth, verifies twitter's access token then redirects the user to the app.
+- `GET` `begin_twitter_sign_in`: redirects the user to the twitter auth page with the app token appended to the url.
+- `GET` `sign_in_with_twitter`: callback url for twitter oauth. It verifies twitter's access token then redirects the user to the app.
 - `GET` `current`: returns user data in json format based on the access token stored in the session.
 - `POST` `logout`: clears the access token from the session.
 
