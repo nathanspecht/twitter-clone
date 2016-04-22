@@ -10,6 +10,8 @@ The frontend code of the app can be found in the [frontend](frontend) folder. It
 - react-dom
 - webpack
 
+--
+
 ### Stores
 #### [Tweet Store](frontend/stores/TweetStore.js)
 ##### Functions
@@ -21,6 +23,7 @@ The frontend code of the app can be found in the [frontend](frontend) folder. It
 ##### Functions
 - `UserStore.current()`: returns the current user.
 
+--
 ### Components
 - **[CurrentUser](frontend/components/CurrentUser.jsx)**
 - **[Logout](frontend/components/Logout.jsx)**
