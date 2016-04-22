@@ -76,7 +76,7 @@ Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/contro
 2. In your terminal:
   1. `npm install`
   - `bundle install`
-  - `webpack` or `webpack --watch` 
+  - `webpack --watch` 
   - `rails s`
 3. Download and run postgresql 
 4. Open `localhost:3000` in your web browser
