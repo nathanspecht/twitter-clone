@@ -49,28 +49,33 @@ var Tweets = React.createClass({
 
   renderTweets: function() {
     var createMarkup = this.createMarkup;
-    return this.state.tweets.map(tweet => {
-      return(
-        <div key={tweet.id} className="tweet">
-          <img className="img-icon" src={tweet.user.image_url} />
-          <div className="info">
-            <div className="tweet-user">
-              <span className="bold">
-                {tweet.user.name}
-              </span>
-              <span className="lite">
-                @{tweet.user.username} • {tweet.date}
-              </span>
-            </div>
-            <div className="tweet-text" 
-                 dangerouslySetInnerHTML={
-                   createMarkup(tweet.textHTML)
-                 }>
+
+    if (this.state.tweets.length > 0) {
+      return this.state.tweets.map(tweet => {
+        return(
+          <div key={tweet.id} className="tweet">
+            <img className="img-icon" src={tweet.user.image_url} />
+            <div className="info">
+              <div className="tweet-user">
+                <span className="bold">
+                  {tweet.user.name}
+                </span>
+                <span className="lite">
+                  @{tweet.user.username} • {tweet.date}
+                </span>
+              </div>
+              <div className="tweet-text" 
+                   dangerouslySetInnerHTML={
+                     createMarkup(tweet.textHTML)
+                   }>
+              </div>
             </div>
           </div>
-        </div>
-      )
-    })
+        )
+      })
+    } else {
+      return <img src="images/fat-twitter-bird.jpg" style={{width: '100%'}}/>
+    }
   },
 
   render: function () {
