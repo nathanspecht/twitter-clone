@@ -34,6 +34,10 @@ Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/contro
       production:
         twitter_consumer_key: "consumer_key_here"
         twitter_consumer_secret: "consumer_secret_here"
+        
+      development:
+        twitter_consumer_key: "consumer_key_here"
+        twitter_consumer_secret: "consumer_secret_here"
     ```
 2. In your terminal:
   1. `npm install`
