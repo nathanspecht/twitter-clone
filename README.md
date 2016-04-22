@@ -26,7 +26,7 @@ The frontend code of the app can be found in the [frontend](frontend) folder.
 I chose not to use any models for this project since nothing is saved to the database.
 Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/controllers/concerns/user.rb) concerns that create hashes out of the Tweet and User objects returned by Twitter's API.
 
-### **Run the server locally**
+## **Run the server locally**
 
 1. Get twitter app credentials and add them to `config/application.yml`:
 
