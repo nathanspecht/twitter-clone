@@ -48,7 +48,7 @@ The frontend code of the app can be found in the [frontend](frontend) folder. It
 - `GET` `current`: returns user data in json format based on the access token stored in the session.
 - `POST` `logout`: clears the access token from the session.
 
-#### [Tweets Conroller](app/controllers/tweets_controller.rb)
+#### [Tweets Controller](app/controllers/tweets_controller.rb)
 ##### Endpoints
 - `GET` `index`: returns the specified number of tweets based on the `username` param. Each call to the TwitterAPI is parsed and then cached using MemCachier for 5 minutes. 
 
