@@ -87,5 +87,5 @@ Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/contro
 
 ## **Deploy to Heroku**
 In you terminal:
-  - `figaro heroku:set -e production`
-  - `git push heroku`
+  1. `figaro heroku:set -e production`
+  2. `git push heroku`
