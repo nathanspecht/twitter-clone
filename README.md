@@ -24,20 +24,30 @@ The frontend code of the app can be found in the [frontend](frontend) folder.
 
 ### Models
 I chose not to use any models for this project since nothing is saved to the database.
-Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/controllers/concerns/user.rb) concerns for the controllers that create hashes out of the Tweet and User objects returned by Twitter's API.
+Instead, I made [tweet](app/controllers/concerns/tweet.rb) and [user](app/controllers/concerns/user.rb) concerns that create hashes out of the Tweet and User objects returned by Twitter's API.
 
 ### **Run the server locally**
-1. In your terminal:
+
+1. Get twitter app credentials and add them to `config/application.yml`:
+
+    ```c
+      production:
+        twitter_consumer_key: "consumer_key_here"
+        twitter_consumer_secret: "consumer_secret_here"
+    ```
+2. In your terminal:
   1. `npm install`
   - `bundle install`
   - `webpack`
   - `rails s`
-2. Download and run postgresql 
-3. Open `localhost:3000` in your web browser
+3. Download and run postgresql 
+4. Open `localhost:3000` in your web browser
 
 ### **Run Tests**
 1. `npm test`
 2. `rake test`
 
 ### **Deploy to Heroku**
-`git push heroku`
+In you terminal:
+  - `figaro heroku:set -e production`
+  - `git push heroku`
