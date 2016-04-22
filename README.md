@@ -1,4 +1,4 @@
-# Twitter Clone
+# Twitter Clone - [Live](https://n8s-twitter-clone.herokuapp.com/)
 
 ## **Frontend**
 The frontend code of the app can be found in the [frontend](frontend) folder. It follows Facebook's [flux architecture](https://facebook.github.io/flux/docs/overview.html).
