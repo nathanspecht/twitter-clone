@@ -1,6 +1,7 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    TweetStore = require('../stores/TweetStore');
+    TweetStore = require('../stores/TweetStore'),
+    TweetUtil = require('../util/TweetUtil');
 
 var Tweets = React.createClass({
   componentDidMount: function() {
@@ -9,6 +10,10 @@ var Tweets = React.createClass({
 
   componentWillUnmount: function() {
     this.TweetStoreListener.remove();
+  },
+
+  componentDidUpdate: function() {
+    this.addOnClickToLinks();
   },
 
   getInitialState: function() {
@@ -23,7 +28,27 @@ var Tweets = React.createClass({
     });
   },
 
+  createMarkup: function(html) {
+    return {__html: html}
+  },
+
+  addOnClickToLinks: function() {
+    var tweetTexts = document.getElementsByClassName('tweet-text'),
+        links, 
+        username;
+    
+    for (var i = 0; i < tweetTexts.length; i++) {
+      links = tweetTexts[i].getElementsByTagName('a');
+      
+      for (var y = 0; y < links.length; y++) {
+        username = links[y].getElementsByTagName('span')[0].textContent;
+        links[y].onclick = TweetUtil.getTweets.bind(this, username);
+      }
+    }
+  },
+
   renderTweets: function() {
+    var createMarkup = this.createMarkup;
     return this.state.tweets.map(tweet => {
       return(
         <div key={tweet.id} className="tweet">
@@ -37,8 +62,10 @@ var Tweets = React.createClass({
                 @{tweet.user.username} • {tweet.date}
               </span>
             </div>
-            <div className="tweet-text">
-              {tweet.text}
+            <div className="tweet-text" 
+                 dangerouslySetInnerHTML={
+                   createMarkup(tweet.textHTML)
+                 }>
             </div>
           </div>
         </div>

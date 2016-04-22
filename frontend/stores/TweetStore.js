@@ -29,6 +29,11 @@ TweetStore.__onDispatch = function(payload) {
 
 TweetStore.__updateCurrentTweets = function(tweets) {
   _currentTweets = tweets;
+  _currentTweets.forEach(tweet => {
+    tweet.textHTML = tweet.text.replace(
+      /@(\w+)/g, "<a>@<span>$1</span></a>"
+    )
+  })
   this.__emitChange();
 };
 
